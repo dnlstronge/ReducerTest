@@ -8,9 +8,17 @@ const amounts = {
     coupleUnder: 200
 }
 
+const amountLCW = {
+    LCW: 150,
+    WRA: 300,
+}
+
 const updateSelect = (state, action) => {
 if(action.type === "PERSONAL_ALLOWANCE") {
-return {personal_allowance: action.PA}
+return {...state, personal_allowance: action.PA}
+}
+if(action.type === "LCW") {
+    return {...state, WCA: action.WC}
 }
 }
 
@@ -23,7 +31,10 @@ const ReduceTest = (props) => {
                                              })
     const handlePA = (e) => {
             dispatchSelectAmount({type: "PERSONAL_ALLOWANCE", PA: e.target.value})
-         }                                              
+         }
+    const handleWC = (e) => {
+        dispatchSelectAmount({type: "LCW", WC: e.target.value})
+    }                                              
 
     return (
         <div className={classes.container}>
@@ -37,6 +48,15 @@ const ReduceTest = (props) => {
                 </select>
             </label>
             <p className={classes.amount} > £{selectAmount.personal_allowance}</p>
+            <label htmlFor="dropdown_PA">
+                <select onChange={handleWC} className={classes.dropdown_PA} id="dropdown_PA">
+                    <option value={0}>--Select--</option>
+                    <option value={amountLCW.LCW}>Limited Capabilty</option>
+                    <option value={amountLCW.WRA}>LCW + WRA</option>
+                   
+                </select>
+            </label>
+            <p className={classes.amount} > £{selectAmount.WCA}</p>
         </div>
     )
 }
