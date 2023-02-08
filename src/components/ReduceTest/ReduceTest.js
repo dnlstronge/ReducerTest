@@ -22,20 +22,32 @@ if(action.type === "LCW") {
 }
 }
 
+
+
+
 const ReduceTest = (props) => {
     const [selectAmount, dispatchSelectAmount] = useReducer(updateSelect, {
                                                         personal_allowance: 0,
                                                         status: '',
-                                                        housing: 0,
+                                                        WCA: 0,
                                                         Carer: 0,
                                              })
+    const [calcTotal, setCalcTotal] = useState(0)
+
+
     const handlePA = (e) => {
             dispatchSelectAmount({type: "PERSONAL_ALLOWANCE", PA: e.target.value})
          }
     const handleWC = (e) => {
         dispatchSelectAmount({type: "LCW", WC: e.target.value})
-    }                                              
+    }
 
+    useEffect(() => {
+       return  setCalcTotal(parseInt(selectAmount.personal_allowance) + parseInt(selectAmount.WCA))
+      }, [selectAmount.personal_allowance, selectAmount.WCA])
+    
+    
+   
     return (
         <div className={classes.container}>
             <label htmlFor="dropdown_PA">
@@ -57,6 +69,7 @@ const ReduceTest = (props) => {
                 </select>
             </label>
             <p className={classes.amount} > £{selectAmount.WCA}</p>
+            <p className={classes.amount} > £{calcTotal}</p>
         </div>
     )
 }
