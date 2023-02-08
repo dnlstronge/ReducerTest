@@ -20,6 +20,9 @@ return {...state, personal_allowance: action.PA}
 if(action.type === "LCW") {
     return {...state, WCA: action.WC}
 }
+if(action.type === "HOUS") {
+    return {...state, HC: action.PL_HC}
+}
 }
 
 
@@ -42,12 +45,12 @@ const ReduceTest = (props) => {
             dispatchSelectAmount({type: "LCW", WC: e.target.value})
     }
     const handleHouse = (e) => {
-            dispatchSelectAmount({type: "HOUS", HC: e.target.value})
+            dispatchSelectAmount({type: "HOUS", PL_HC: e.target.value})
     }   
 
     useEffect(() => {
-       return  setCalcTotal(parseInt(selectAmount.personal_allowance) + parseInt(selectAmount.WCA))
-      }, [selectAmount.personal_allowance, selectAmount.WCA])
+       return  setCalcTotal(parseInt(selectAmount.personal_allowance) + parseInt(selectAmount.WCA) + parseInt(selectAmount.HC))
+      }, [selectAmount.personal_allowance, selectAmount.WCA, selectAmount.HC])
     
     
    
@@ -74,7 +77,7 @@ const ReduceTest = (props) => {
             
            
 
-            <label className={classes.label_house} htmlFor="input_num"> Housing Costs: {selectAmount.HC}
+            <label className={classes.label_house} htmlFor="input_num"> Housing Costs: £{selectAmount.HC}
                 <input onChange={handleHouse} className={classes.input_number} type="number"placeholder="Monthly Housing"></input>
             </label>
             <p className={classes.total} > £{calcTotal}</p>
