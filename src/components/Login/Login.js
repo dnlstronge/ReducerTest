@@ -54,12 +54,12 @@ const Login = (props) => {
     setEnteredPassword(event.target.value);
 
     setFormIsValid(
-      enteredEmail.includes('@') && event.target.value.trim().length > 6
+      emailState.enailState.isValid && event.target.value.trim().length > 6
     );
   };
 
   const validateEmailHandler = () => {
-    setEmailIsValid(enteredEmail.includes('@'));
+    setEmailIsValid(emailState.value.includes('@'));
   };
 
   const validatePasswordHandler = () => {
