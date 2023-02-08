@@ -1,0 +1,9 @@
+.container {
+    display: flex;
+    margin: 3rem 3rem 3rem 3rem;
+    border: 2px solid black;
+    height: 10rem;
+    width: 10rem;
+    background: grey;
+
+}
