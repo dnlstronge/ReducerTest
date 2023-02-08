@@ -2,26 +2,46 @@
     display: flex;
     flex-direction: column;
     margin: 3rem 3rem 3rem 3rem;
-    padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+    padding: 1rem 1rem 1.5rem 1.5rem;
     border: 2px solid black;
-    height: 15rem;
-    width: 15rem;
+    height: 30rem;
+    width: 20rem;
     background: grey;
+    border-radius: 5px;
+    box-shadow: inset;
+    border: 3px solid black;
 
 }
 
-.dropdown {
+.label {
+    font-weight: bold;
+    margin: 1rem 1rem 1rem 1rem;
+}
+
+.dropdown_PA {
     display: flex;
     flex-direction: column;
     font-weight: bold;
     width: 90%;
     height: 2rem;
+    margin-top: 1rem;
 
 }
 
-.amount {
-    display: flex;
-    flex-direction: column;
-    width: 3rem;
-    height: 3rem;
+
+.label_house {
+    font-weight: bold;
+}
+
+.input_number {
+    margin-top: 1rem;
+    width: 90%;
+    height: 3.5rem;
+    background: whitesmoke;
+}
+.total {
+    width: 90%;
+    height: 3.5rem;
+    background: whitesmoke;
+
 }

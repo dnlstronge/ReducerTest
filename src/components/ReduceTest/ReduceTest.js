@@ -30,7 +30,7 @@ const ReduceTest = (props) => {
                                                         personal_allowance: 0,
                                                         status: '',
                                                         WCA: 0,
-                                                        Carer: 0,
+                                                        HC: 0,
                                              })
     const [calcTotal, setCalcTotal] = useState(0)
 
@@ -39,8 +39,11 @@ const ReduceTest = (props) => {
             dispatchSelectAmount({type: "PERSONAL_ALLOWANCE", PA: e.target.value})
          }
     const handleWC = (e) => {
-        dispatchSelectAmount({type: "LCW", WC: e.target.value})
+            dispatchSelectAmount({type: "LCW", WC: e.target.value})
     }
+    const handleHouse = (e) => {
+            dispatchSelectAmount({type: "HOUS", HC: e.target.value})
+    }   
 
     useEffect(() => {
        return  setCalcTotal(parseInt(selectAmount.personal_allowance) + parseInt(selectAmount.WCA))
@@ -50,7 +53,7 @@ const ReduceTest = (props) => {
    
     return (
         <div className={classes.container}>
-            <label htmlFor="dropdown_PA">
+            <label className={classes.label} htmlFor="dropdown_PA">Personal Allowance: £{selectAmount.personal_allowance}
                 <select onChange={handlePA} className={classes.dropdown_PA} id="dropdown_PA">
                     <option value={0}>--Select--</option>
                     <option value={amounts.singleUnder}>Single under 25</option>
@@ -59,8 +62,8 @@ const ReduceTest = (props) => {
                     <option value={amounts.coupleOver}>Couple over 25</option>
                 </select>
             </label>
-            <p className={classes.amount} > £{selectAmount.personal_allowance}</p>
-            <label htmlFor="dropdown_PA">
+        
+            <label className={classes.label} htmlFor="dropdown_PA"> LCW/WRA: £{selectAmount.WCA}
                 <select onChange={handleWC} className={classes.dropdown_PA} id="dropdown_PA">
                     <option value={0}>--Select--</option>
                     <option value={amountLCW.LCW}>Limited Capabilty</option>
@@ -68,8 +71,13 @@ const ReduceTest = (props) => {
                    
                 </select>
             </label>
-            <p className={classes.amount} > £{selectAmount.WCA}</p>
-            <p className={classes.amount} > £{calcTotal}</p>
+            
+           
+
+            <label className={classes.label_house} htmlFor="input_num"> Housing Costs: {selectAmount.HC}
+                <input onChange={handleHouse} className={classes.input_number} type="number"placeholder="Monthly Housing"></input>
+            </label>
+            <p className={classes.total} > £{calcTotal}</p>
         </div>
     )
 }
