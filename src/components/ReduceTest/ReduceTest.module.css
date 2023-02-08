@@ -1,9 +1,27 @@
 .container {
     display: flex;
+    flex-direction: column;
     margin: 3rem 3rem 3rem 3rem;
+    padding: 1.5rem 1.5rem 1.5rem 1.5rem;
     border: 2px solid black;
-    height: 10rem;
-    width: 10rem;
+    height: 15rem;
+    width: 15rem;
     background: grey;
 
+}
+
+.dropdown {
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    width: 90%;
+    height: 2rem;
+
+}
+
+.amount {
+    display: flex;
+    flex-direction: column;
+    width: 3rem;
+    height: 3rem;
 }
