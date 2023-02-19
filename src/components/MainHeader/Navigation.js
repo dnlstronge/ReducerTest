@@ -4,9 +4,7 @@ import AuthContext from '../context/authContext';
 import classes from './Navigation.module.css';
 
 const Navigation = (props) => {
-  return (
-   <AuthContext.Consumer>
-   {(context) => {
+  
     return (
       <nav className={classes.nav}>
       <ul>
@@ -27,10 +25,8 @@ const Navigation = (props) => {
         )}
       </ul>
     </nav>
-    )
-   }
-   }
-   </AuthContext.Consumer>
+    
+
   );
 };
 
