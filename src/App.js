@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import ReduceTest from "./components/ReduceTest/ReduceTest"
+
 import Login from './components/Login/Login';
 import Home from './components/Home/Home';
 import MainHeader from './components/MainHeader/MainHeader';
@@ -34,7 +34,7 @@ function App() {
         {!isLoggedIn && <Login onLogin={loginHandler} />}
         {isLoggedIn && <Home onLogout={logoutHandler} />}
       </main>
-      <ReduceTest />
+      
     </React.Fragment>
   );
 }
