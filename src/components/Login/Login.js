@@ -49,7 +49,7 @@ const Login = (props) => {
     const identifier = setTimeout(() => {
       console.log('Checking form validity!');
       setFormIsValid(
-        enteredEmail.includes('@') && enteredPassword.trim().length > 6
+        emailValid && passwordValid
       );
     }, 500);
 
@@ -57,7 +57,7 @@ const Login = (props) => {
       console.log('CLEANUP');
       clearTimeout(identifier);
     };
-  }, [enteredEmail, enteredPassword]);
+  }, [emailValid, passwordValid]);
 
   const emailChangeHandler = (event) => {
     dispatchEmail({type: "USER_INPUT", val: event.target.value})
