@@ -10,7 +10,7 @@ const Navigation = (props) => {
     return (
       <nav className={classes.nav}>
       <ul>
-        {props.isLoggedIn && (
+        {context.isLoggedIn && (
           <li>
             <a href="/">Users</a>
           </li>
