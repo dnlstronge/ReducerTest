@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import AuthContext from '../context/authContext';
-
 import classes from './Navigation.module.css';
 
 const Navigation = (props) => {
   const context = useContext(AuthContext)
+
   
     return (
       <nav className={classes.nav}>
@@ -26,8 +26,6 @@ const Navigation = (props) => {
         )}
       </ul>
     </nav>
-    
-
   );
 };
 
