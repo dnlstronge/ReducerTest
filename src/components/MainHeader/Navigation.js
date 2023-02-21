@@ -5,7 +5,6 @@ import classes from './Navigation.module.css';
 const Navigation = (props) => {
   const context = useContext(AuthContext)
 
-  
     return (
       <nav className={classes.nav}>
       <ul>
