@@ -19,6 +19,14 @@ export const AuthContextProvider = () => {
         setIsLoggedIn(true)
     }
 
+    useEffect(() => {
+        const storedUserLoggedInInformation = localStorage.getItem('isLoggedIn');
+    
+        if (storedUserLoggedInInformation === '1') {
+          setIsLoggedIn(true);
+        }
+      }, []);
+
     return (
         <AuthContext.Provider value={{
             isLoggedIn: isLoggedIn, 
